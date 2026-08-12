@@ -1,22 +1,119 @@
+:root {
+    --bg: #ffffff;
+    --text: #1f2b25;
+    --muted: #cfe0d6;
+    --muted-text: #6b8577;
+    --accent: #3f7a5e;
+    --accent-hover: #35684f;
+    --shadow: 0 8px 24px rgba(31, 43, 37, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #91b9a5;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     color: #fff;
-    padding: 20px;
+    padding: 100px 490px 20px;
     text-align: center;
 }
 
-#chatbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+header h1 {
+    font-size: 5.0rem;
+    margin: 0;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Wraps the input + disclaimer so both stay centered and share a width */
+.composer {
     width: 100%;
-    background-color: #333;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#typebar {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    border: 1px solid var(--muted);
+    border-radius: 24px;
+    padding: 10px 10px 10px 20px;
+    background-color: var(--bg);
+    box-shadow: var(--shadow);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#typebar:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(63, 122, 94, 0.15), var(--shadow);
+}
+
+#typebar textarea {
+    flex: 1;
+    resize: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text);
+    padding: 6px 0;
+    max-height: 200px;
+}
+
+#typebar textarea::placeholder {
+    color: var(--muted-text);
+}
+
+#send-btn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent);
     color: #fff;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+#send-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+#send-btn:active {
+    transform: scale(0.94);
+}
+
+.disclaimer {
+    margin: 12px 0 0;
+    font-size: 0.8rem;
+    color: rgba(31, 43, 37, 0.65);
+    text-align: center;
 }

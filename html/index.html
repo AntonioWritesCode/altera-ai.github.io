@@ -8,15 +8,21 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to Alter AI</h1>
+      <h1>Welcome to Sol</h1>
   </header>
 
   <main>
-    <div class="chatbar">
-        <input type="text" placeholder="Type your message..." />
-         <p class="disclaimer">Altera is not a therapist. Information may be wrong.</p>
+    <div class="composer">
+      <div id="typebar">
+        <textarea rows="1" placeholder="Type your message..."></textarea>
+        <button type="button" id="send-btn" aria-label="Send message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <p class="disclaimer">SOL AI is not a therapist. Information may be wrong.</p>
     </div>
-
   </main>
 
 </body>
