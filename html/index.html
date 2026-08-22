@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alter AI</title>
-  <link rel="stylesheet" href="\css\styles.css" />
+  <title>Sol</title>
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-  <header>
-      <h1>Welcome to Sol</h1>
-  </header>
 
-  <main>
-    <div class="composer">
-      <div id="typebar">
-        <textarea rows="1" placeholder="Type your message..."></textarea>
-        <button type="button" id="send-btn" aria-label="Send message">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-      <p class="disclaimer">SOL AI is not a therapist. Information may be wrong.</p>
+  <div class="layout">
+    <div class="tabs" id="tabs">
+      <button type="button" id="tabs-toggle" aria-label="Collapse sidebar">
+        <img src="/images/proto_tab.png" width="24" height="24" alt="" />
+      </button>
+      <ul>
+        <li class="tab active" data-tab="chat">New Chat</li>
+        <li class="tab" data-tab="journal">Journal</li>
+      </ul>
     </div>
-  </main>
+
+    <div class="main">
+      <header>
+        <h1>Welcome to Sol</h1>
+      </header>
+
+      <div class="composer">
+        <div class="typebar">
+          <textarea rows="1" placeholder="Type your message..."></textarea>
+          <button type="button" id="send-btn" aria-label="Send message">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p class="disclaimer">Sol is not a therapist. Information may be wrong.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.getElementById('tabs');
+    const toggleBtn = document.getElementById('tabs-toggle');
+
+    toggleBtn.addEventListener('click', () => {
+      tabs.classList.toggle('collapsed');
+    });
+  </script>
 
 </body>
 </html>
