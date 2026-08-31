@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
@@ -11,22 +14,64 @@
   <div class="layout">
     <div class="tabs" id="tabs">
       <button type="button" id="tabs-toggle" aria-label="Collapse sidebar">
-        <img src="/images/proto_tab.png" width="24" height="24" alt="" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 5 8 12l7 7" />
+        </svg>
       </button>
       <ul>
-        <li class="tab active" data-tab="chat">New Chat</li>
-        <li class="tab" data-tab="journal">Journal</li>
+        <li class="tab active">
+          <a href="/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16v11H8l-4 4V5Z" />
+            </svg>
+            <span class="tab-label">New chat</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="journal.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H17a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 19.5v-15Z" />
+              <path d="M5 6.5h13M5 17.5h13" />
+            </svg>
+            <span class="tab-label">Journal</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="connections.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 17H7a5 5 0 0 1 0-10h2" />
+              <path d="M15 7h2a5 5 0 0 1 0 10h-2" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
+            <span class="tab-label">Connections</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="settings.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9.4" stroke-width="3" stroke-dasharray="1.6 2.5" />
+              <circle cx="12" cy="12" r="6.6" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="2.2" stroke-width="1.8" />
+            </svg>
+            <span class="tab-label">Settings</span>
+          </a>
+        </li>
       </ul>
     </div>
 
-    <div class="main">
-      <header>
-        <h1>Welcome to Sol</h1>
+    <div class="main" id="main">
+      <div class="glow" aria-hidden="true"></div>
+
+      <header id="hero">
+        <h1 id="greeting">Hello.</h1>
+        <p class="subhead">What's on your mind today?</p>
       </header>
+
+      <div class="chat-log" id="chat-log"></div>
 
       <div class="composer">
         <div class="typebar">
-          <textarea rows="1" placeholder="Type your message..."></textarea>
+          <textarea id="composer-input" rows="1" placeholder="Type your message..."></textarea>
           <button type="button" id="send-btn" aria-label="Send message">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,9 +88,21 @@
     const toggleBtn = document.getElementById('tabs-toggle');
 
     toggleBtn.addEventListener('click', () => {
-      tabs.classList.toggle('collapsed');
+      const collapsed = tabs.classList.toggle('collapsed');
+      toggleBtn.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
     });
+
+    // Greeting that follows the time of day, fitting for an app named Sol
+    const greetingEl = document.getElementById('greeting');
+    const hour = new Date().getHours();
+    const greeting =
+      hour < 5 ? 'Still up?' :
+      hour < 12 ? 'Good morning.' :
+      hour < 18 ? 'Good afternoon.' :
+      'Good evening.';
+    greetingEl.textContent = greeting;
   </script>
+  <script src="/js/chat.js"></script>
 
 </body>
 </html>

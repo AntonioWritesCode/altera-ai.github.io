@@ -1,0 +1,340 @@
+/* ---------- Tokens ---------- */
+:root {
+  --paper: #f4efe2;
+  --card: #fffdf7;
+  --ink: #2e2a24;
+  --ink-soft: #6b6355;
+  --ink-faint: #a89f8c;
+  --rule: #ddd4bd;
+  --accent: #4f7d75;
+  --accent-dark: #3b615a;
+  --accent-tint: #dfe9e6;
+  --danger: #ad5a44;
+  --shadow: 0 6px 16px rgba(46, 42, 36, 0.10), 0 1px 3px rgba(46, 42, 36, 0.08);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: var(--paper);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-image:
+      radial-gradient(circle at 1px 1px, rgba(46, 42, 36, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* ---------- Home button ---------- */
+.home-button {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.home-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.home-button:hover {
+  background: var(--accent);
+  color: #fffdf7;
+}
+
+.home-button:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+.home-button:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 56px 24px 40px;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 52px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.tagline {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 28px;
+}
+
+/* ---------- New entry button ---------- */
+.new-entry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px 11px 16px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fffdf7;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.new-entry-btn:hover {
+  background: var(--accent-dark);
+}
+
+.new-entry-btn:active {
+  transform: scale(0.97);
+}
+
+.new-entry-btn:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+/* ---------- Empty state ---------- */
+.lone {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-faint);
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.lone.is-hidden {
+  display: none;
+}
+
+/* ---------- Board ---------- */
+.main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 24px;
+  justify-content: flex-start;
+}
+
+/* ---------- Note card ---------- */
+.note {
+  position: relative;
+  width: 300px;
+  background: var(--card);
+  border-radius: 3px 3px 8px 8px;
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.main .note:nth-child(6n+1) { --tilt: -1.4deg; }
+.main .note:nth-child(6n+2) { --tilt: 1deg; }
+.main .note:nth-child(6n+3) { --tilt: -0.6deg; }
+.main .note:nth-child(6n+4) { --tilt: 1.6deg; }
+.main .note:nth-child(6n+5) { --tilt: -1deg; }
+.main .note:nth-child(6n+6) { --tilt: 0.7deg; }
+
+.note:hover,
+.note:focus-within {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 0 10px 24px rgba(46, 42, 36, 0.14), 0 2px 6px rgba(46, 42, 36, 0.10);
+  z-index: 2;
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 2px 3px rgba(46, 42, 36, 0.3);
+}
+
+.note textarea {
+  border: none;
+  width: 100%;
+  resize: none;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: transparent;
+}
+
+.note textarea:focus {
+  outline: none;
+}
+
+.title-div {
+  border-bottom: 1px solid var(--rule);
+}
+
+.title-div textarea.title {
+  height: 46px;
+  padding: 14px 44px 8px 16px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.title-div textarea.title::placeholder {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.note textarea.content {
+  height: 190px;
+  padding: 14px 16px 16px;
+  font-size: 14.5px;
+  line-height: 26px;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 25px,
+      var(--rule) 25px,
+      var(--rule) 26px
+  );
+  background-attachment: local;
+}
+
+.note textarea.content::placeholder {
+  color: var(--ink-faint);
+}
+
+/* ---------- Icons ---------- */
+.icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.icon-btn {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.icon-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.icon-btn.save:hover {
+  color: var(--accent-dark);
+  background: var(--accent-tint);
+}
+
+.icon-btn.trash:hover {
+  color: var(--danger);
+  background: rgba(173, 90, 68, 0.12);
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 1px;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 600px) {
+  .site-header {
+      padding: 40px 20px 28px;
+  }
+
+  .site-header h1 {
+      font-size: 38px;
+  }
+
+  main {
+      padding: 28px 16px 56px;
+  }
+
+  .lone {
+      font-size: 18px;
+  }
+
+  .main {
+      justify-content: center;
+  }
+
+  .note {
+      width: 100%;
+      max-width: 340px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note {
+      transition: none;
+  }
+}
