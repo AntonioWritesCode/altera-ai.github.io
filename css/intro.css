@@ -1,0 +1,36 @@
+/* ---------- Tokens ---------- */
+:root {
+    --paper: #f4efe2;
+    --card: #fffdf7;
+    --sidebar: #ece4cf;
+    --ink: #2e2a24;
+    --ink-soft: #6b6355;
+    --ink-faint: #a89f8c;
+    --rule: #ddd4bd;
+    --accent: #4f7d75;
+    --accent-dark: #3b615a;
+    --accent-tint: #dfe9e6;
+    --sun: #f3c988;
+    --shadow: 0 6px 16px rgba(46, 42, 36, 0.10), 0 1px 3px rgba(46, 42, 36, 0.08);
+  
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+h2 {
+    text-align: center;
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+  }

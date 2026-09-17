@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="layout">
+        <div class="tabs" id="tabs">
+          <button type="button" id="tabs-toggle" aria-label="Collapse sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 5 8 12l7 7" />
+            </svg>
+          </button>
+          <ul>
+            <li class="tab active">
+              <a href="/html/index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 5h16v11H8l-4 4V5Z" />
+                </svg>
+                <span class="tab-label">New chat</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/html/journal.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H17a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 19.5v-15Z" />
+                  <path d="M5 6.5h13M5 17.5h13" />
+                </svg>
+                <span class="tab-label">Journal</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="connections.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 17H7a5 5 0 0 1 0-10h2" />
+                  <path d="M15 7h2a5 5 0 0 1 0 10h-2" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                <span class="tab-label">Connections</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="/html/settings.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="9.4" stroke-width="3" stroke-dasharray="1.6 2.5" />
+                  <circle cx="12" cy="12" r="6.6" stroke-width="1.8" />
+                  <circle cx="12" cy="12" r="2.2" stroke-width="1.8" />
+                </svg>
+                <span class="tab-label">Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <script>
+            const tabs = document.getElementById('tabs');
+            const toggleBtn = document.getElementById('tabs-toggle');
+        
+            toggleBtn.addEventListener('click', () => {
+              const collapsed = tabs.classList.toggle('collapsed');
+              toggleBtn.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+            });
+          </script>
+</body>
+</html>

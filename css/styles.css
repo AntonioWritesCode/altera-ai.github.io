@@ -177,6 +177,48 @@ h1 {
   font-family: var(--font-display);
 }
 
+/* ---------- Chat ---------- */
+.chat-log {
+  position: relative;
+  width: min(680px, calc(100% - 48px));
+  max-height: 46vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 4px;
+}
+
+.chat-message {
+  max-width: 82%;
+  padding: 11px 14px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 2px rgba(46, 42, 36, 0.06);
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  color: #fffdf7;
+  background: var(--accent);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.assistant {
+  align-self: flex-start;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.pending {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
 /* ---------- Composer ---------- */
 .composer {
   position: relative;
@@ -246,6 +288,11 @@ h1 {
 .tab a:focus-visible {
   outline: 2px solid var(--accent-dark);
   outline-offset: 2px;
+}
+
+#send-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 .disclaimer {
