@@ -103,3 +103,4 @@ function loadNotes() {
 }
 
 loadNotes();
+askOllama("YO!");
