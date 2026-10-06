@@ -11,21 +11,6 @@ newEntryBtn.addEventListener("click", function () {
     addNote();
 });
 
-async function askOllama(prompt) {
-  const response = await fetch("http://localhost:11434/api/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "llama3.1",
-      prompt,
-      stream: false
-    })
-  });
-
-  if (!response.ok) throw new Error(`Ollama returned ${response.status}`);
-  return (await response.json()).response;
-}
-
 // Show or hide the "nothing here yet" message
 const updateEmptyState = () => {
     const hasNotes = board.children.length > 0;
@@ -103,4 +88,3 @@ function loadNotes() {
 }
 
 loadNotes();
-askOllama("YO!");

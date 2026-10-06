@@ -46,6 +46,21 @@ async function sendMessage() {
   }
 }
 
+async function askOllama(prompt) {
+  const response = await fetch("http://localhost:11434/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "llama3.1",
+      prompt,
+      stream: false
+    })
+  });
+
+  if (!response.ok) throw new Error(`Ollama returned ${response.status}`);
+  return (await response.json()).response;
+}
+
 sendButton.addEventListener("click", sendMessage);
 input.addEventListener("input", resizeInput);
 input.addEventListener("keydown", (event) => {
