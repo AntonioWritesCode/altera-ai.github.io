@@ -99,3 +99,23 @@ function loadNotes() {
 }
 
 loadNotes();
+
+module.exports = async (req, res) => {
+  if (req.method !== "POST") return res.status(405).end();
+
+  try {
+    const r = await fetch(`${process.env.OLLAMA_URL}/api/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: process.env.OLLAMA_MODEL || "llama3.1",
+        messages: req.body.messages,
+        stream: false,
+      }),
+    });
+    const data = await r.json();
+    res.status(r.status).json(data);
+  } catch (err) {
+    res.status(502).json({ error: "Could not reach Ollama" });
+  }
+};
