@@ -1,7 +1,6 @@
 const newEntryBtn = document.querySelector(".new-entry-btn");
 const board = document.querySelector(".main");
 const emptyState = document.querySelector(".lone");
-const userNameInput = document.getElementById("user-name");
 
 const saveIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg>`;
 const trashIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>`;
@@ -16,17 +15,6 @@ const updateEmptyState = () => {
     const hasNotes = board.children.length > 0;
     emptyState.classList.toggle("is-hidden", hasNotes);
 };
-
-async function askSol(messages) {
-  const res = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages }),
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "Request failed");
-  return data.message.content;
-}
 
 // Save button function
 const saveNotes = () => {
