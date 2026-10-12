@@ -7,38 +7,75 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="journal.css">
 </head>
 <body>
-    <header class="site-header">
-        <h1>Journal</h1>
-        <p class="tagline">A quiet place to keep the day.</p>
-    </header>
+    <div class="layout">
+        <nav class="tabs" id="tabs" aria-label="Main navigation">
+            <button type="button" id="tabs-toggle" aria-label="Collapse sidebar" aria-controls="main-navigation" aria-expanded="true">
+                <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5 8 12l7 7" />
+                </svg>
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <ul id="main-navigation">
+                <li class="tab">
+                    <a href="/" aria-label="New chat">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M4 5h16v11H8l-4 4V5Z" />
+                        </svg>
+                        <span class="tab-label">New chat</span>
+                    </a>
+                </li>
+                <li class="tab active">
+                    <a href="/journal.html" aria-label="Journal" aria-current="page">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H17a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 19.5v-15Z" />
+                            <path d="M5 6.5h13M5 17.5h13" />
+                        </svg>
+                        <span class="tab-label">Journal</span>
+                    </a>
+                </li>
+                <li class="tab">
+                    <a href="/settings.html" aria-label="Settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9.4" stroke-width="3" stroke-dasharray="1.6 2.5" />
+                            <circle cx="12" cy="12" r="6.6" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="2.2" stroke-width="1.8" />
+                        </svg>
+                        <span class="tab-label">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="journal-page">
+            <header class="site-header">
+                <h1>Journal</h1>
+                <p class="tagline">A quiet place to keep the day.</p>
+            </header>
 
-    <a class="home-button" href="index.html" aria-label="Home">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 11.5 12 4l9 7.5"/>
-            <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/>
-        </svg>
-    </a>
+            <main>
+                <section>
+                    <div class="toolbar">
+                        <button class="new-entry-btn" type="button">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                            </svg>
+                            New entry
+                        </button>
+                    </div>
 
-    <main>
-        <section>
-            <div class="toolbar">
-                <button class="new-entry-btn" type="button">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                    </svg>
-                    New entry
-                </button>
-            </div>
+                    <h2 class="lone">It's quiet in here. Write your first entry.</h2>
 
-            <h2 class="lone">It's quiet in here. Write your first entry.</h2>
-
-            <div class="main"></div>
-        </section>
-    </main>
-
+                    <div class="main"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="nav.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
