@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:,">
+  <title>Sol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+
+  <div class="layout">
+    <nav class="tabs" id="tabs" aria-label="Main navigation">
+      <button type="button" id="tabs-toggle" aria-label="Collapse sidebar" aria-controls="main-navigation" aria-expanded="true">
+        <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 5 8 12l7 7" />
+        </svg>
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <ul id="main-navigation">
+        <li class="tab active">
+          <a href="/" aria-label="New chat" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16v11H8l-4 4V5Z" />
+            </svg>
+            <span class="tab-label">New chat</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="/journal.html" aria-label="Journal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H17a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 19.5v-15Z" />
+              <path d="M5 6.5h13M5 17.5h13" />
+            </svg>
+            <span class="tab-label">Journal</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="/chat.html" aria-label="Chat History">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Speech bubble with tail -->
+              <path d="M20 11.5V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2v3l3.5-3" />
+              <!-- Clock badge -->
+              <circle cx="17.5" cy="16.5" r="4" />
+              <path d="M17.5 14.5v2l1.3 1" />
+            </svg>
+            <span class="tab-label">Chat History</span>
+          </a>
+        </li>
+        <li class="tab">
+          <a href="/settings.html" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9.4" stroke-width="3" stroke-dasharray="1.6 2.5" />
+              <circle cx="12" cy="12" r="6.6" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="2.2" stroke-width="1.8" />
+            </svg>
+            <span class="tab-label">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="chatH-page">
+        <header class="site-header">
+            <h1>Chat History</h1>
+            <p class="tagline">After a long session, you have to go back.</p>
+        </header>
+
+    <script src="nav.js"></script>
+  
+  </body>
+  </html>
